@@ -33,9 +33,9 @@ bookmarks.get("/:index", (req, res) => {
 });
 
 // DELETE
-bookmarks.delete("/:indexArray", (req, res) => {
+bookmarks.delete("/:arrayIndex", (req, res) => {
   if (bookmarksArray[req.params.arrayIndex]) {
-    const deletedBookMark = bookmarksArray.splice(req.params.indexArray, 1);
+    const deletedBookMark = bookmarksArray.splice(req.params.arrayIndex, 1);
     res.status(200).json(deletedBookMark);
   } else {
     res.status(404).json({ error: "Not Found" });

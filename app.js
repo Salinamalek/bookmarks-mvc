@@ -4,6 +4,7 @@ const express = require("express");
 // CONFIGURATION
 const app = express();
 const morgan = require("morgan");
+const cors = require("cors");
 const bookmarksController = require("./controllers/bookmarksController.js");
 
 app.use((req, res, next) => {
@@ -12,6 +13,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use(cors());
 app.use(morgan("tiny"));
 app.use("/bookmarks", bookmarksController);
 
